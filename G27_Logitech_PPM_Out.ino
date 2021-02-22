@@ -34,7 +34,6 @@ ArduinoG27 G27;
 
 void setup()
 {
-  //Serial.begin(115200);
   G27.Init();
 
   //initiallize default ppm value
@@ -75,16 +74,13 @@ void loop()
 
   if ( Brake > 1 )
   {
-    //ppm[1] = map(Brake, -255, 255, MinPulse, MaxPulse);
     ppm[1] = map(Brake, -255, 255, MaxPulse, MinPulse);
     ppm[1] = constrain(ppm[1], MinPulse, MaxPulse);
-    //Serial.println(ppm[1]);
   }
   else if ( Throttle > 1 )
   {
     ppm[1] = map(Throttle, -255, 255, MinPulse, MaxPulse);
     ppm[1] = constrain(ppm[1], MinPulse, MaxPulse);
-    //Serial.println(ppm[1]);
   }
   else
   {
